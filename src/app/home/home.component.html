@@ -1,0 +1,71 @@
+
+<div class="container">
+  <div class="weather__header">
+    <form class="weather__search" #search="ngForm">
+      <input
+        type="text"
+        placeholder="Search for a city..."
+        class="weather__searchform"
+        ngModel
+        name="search"
+        (change)="getData(search.value)"
+      />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </form>
+    <div class="weather__units">
+      <span class="weather_unit_celsius">&#176;C</span>
+      <span class="weather_unit_farenheit">&#176;F</span>
+    </div>
+  </div>
+  <div class="weather__body">
+    <h1 class="weather__city">
+        {{weather?.name}}
+    </h1>
+    <div class="weather__datetime">
+        {{date | date:'fullDate'}}
+    </div>
+    <div class="weather__forecast">
+        {{weather != null || weather != undefined ? weather.weather[0].main : ""}}
+    </div>
+    <div class="weather__icon">
+         <img [src]="icon" />
+    </div>
+    <p class="weather__temperature"></p>
+    <div class="weather__minmax">
+      <p>Min: {{weather?.main?.temp_min}}</p>
+      <p>Max: {{weather?.main?.temp_max}}</p>
+    </div>
+  </div>
+
+  <div class="weather__info">
+    <div class="weather__card">
+      <i class="fa-solid fa-temperature-full"></i>
+      <div>
+        <p>Real Feel</p>
+        <p class="weather__realfeel">{{weather?.main?.feels_like}}</p>
+      </div>
+    </div>
+    <div class="weather__card">
+      <i class="fa-solid fa-droplet"></i>
+      <div>
+        <p>Humidity</p>
+        <p class="weather__humidity">{{weather?.main?.humidity}}&#176;</p>
+      </div>
+    </div>
+    <div class="weather__card">
+      <i class="fa-solid fa-wind"></i>
+      <div>
+        <p>Wind</p>
+        <p class="weather__wind">18&#176;</p>
+      </div>
+    </div>
+    <div class="weather__card">
+      <i class="fa-solid fa-gauge-high"></i>
+      <div>
+        <p>Pressure</p>
+        <p class="weather__pressure">18&#176;</p>  
+      </div>
+    </div>
+  </div>
+  
+</div>
