@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="weather__header">
     <form class="weather__search" #search="ngForm">
@@ -17,55 +16,95 @@
       <span class="weather_unit_farenheit">&#176;F</span>
     </div>
   </div>
-  <div class="weather__body">
-    <h1 class="weather__city">
-        {{weather?.name}}
-    </h1>
-    <div class="weather__datetime">
-        {{date | date:'fullDate'}}
+
+  <div *ngIf="weather != null && error == null">
+    <div class="weather__body">
+      <h1 class="weather__city">
+        {{ weather.city.name }}
+      </h1>
+
+      <div style="margin-top: 40px">
+        <label *ngFor="let i of dateWiseData">
+          <label
+            [className]="i.isSelected == true ? 'datesActive' : 'dates'"
+            (click)="onTapDate(i)"
+            >{{ i.date | date : "EEEE" }}</label
+          >
+        </label>
+      </div>
+
+      <div style="margin-top: 40px">
+        <label *ngFor="let i of selectedWeather?.data">
+          <label
+            [className]="i.isSelected == true ? 'datesActive' : 'dates'"
+            (click)="onTapTime(i)"
+            >{{ i.dt_txt | date : "shortTime" }}</label
+          >
+        </label>
+      </div>
+
+      <div class="weather__datetime">
+        {{ date | date : "fullDate" }}
+      </div>
+      <div class="weather__forecast">
+        {{
+          selectedWeatherTime?.weather != undefined &&
+          selectedWeatherTime?.weather?.length != 0
+            ? (selectedWeatherTime?.weather)![0].main
+            : ""
+        }}
+      </div>
+      <div class="weather__icon">
+        <img [src]="getIcon()" />
+      </div>
+      <p class="weather__temperature"></p>
+      <div class="weather__minmax">
+        <p>Min: {{ selectedWeatherTime?.main?.temp_min }}</p>
+        <p>Max: {{ selectedWeatherTime?.main?.temp_max }}</p>
+      </div>
     </div>
-    <div class="weather__forecast">
-        {{weather != null || weather != undefined ? weather.weather[0].main : ""}}
-    </div>
-    <div class="weather__icon">
-         <img [src]="icon" />
-    </div>
-    <p class="weather__temperature"></p>
-    <div class="weather__minmax">
-      <p>Min: {{weather?.main?.temp_min}}</p>
-      <p>Max: {{weather?.main?.temp_max}}</p>
+
+    <div class="weather__info">
+      <div class="weather__card">
+        <i class="fa-solid fa-temperature-full"></i>
+        <div>
+          <p>Real Feel</p>
+          <p class="weather__realfeel">
+            {{ selectedWeatherTime?.main?.feels_like }}&#176;
+          </p>
+        </div>
+      </div>
+      <div class="weather__card">
+        <i class="fa-solid fa-droplet"></i>
+        <div>
+          <p>Humidity</p>
+          <p class="weather__humidity">
+            {{ selectedWeatherTime?.main?.humidity }} %
+          </p>
+        </div>
+      </div>
+      <div class="weather__card">
+        <i class="fa-solid fa-wind"></i>
+        <div>
+          <p>Wind</p>
+          <p class="weather__wind">
+            {{ selectedWeatherTime?.wind?.speed }} m/s
+          </p>
+        </div>
+      </div>
+      <div class="weather__card">
+        <i class="fa-solid fa-gauge-high"></i>
+        <div>
+          <p>Pressure</p>
+          <p class="weather__pressure">
+            {{ selectedWeatherTime?.main?.pressure }} hpa
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="weather__info">
-    <div class="weather__card">
-      <i class="fa-solid fa-temperature-full"></i>
-      <div>
-        <p>Real Feel</p>
-        <p class="weather__realfeel">{{weather?.main?.feels_like}}</p>
-      </div>
-    </div>
-    <div class="weather__card">
-      <i class="fa-solid fa-droplet"></i>
-      <div>
-        <p>Humidity</p>
-        <p class="weather__humidity">{{weather?.main?.humidity}}&#176;</p>
-      </div>
-    </div>
-    <div class="weather__card">
-      <i class="fa-solid fa-wind"></i>
-      <div>
-        <p>Wind</p>
-        <p class="weather__wind">18&#176;</p>
-      </div>
-    </div>
-    <div class="weather__card">
-      <i class="fa-solid fa-gauge-high"></i>
-      <div>
-        <p>Pressure</p>
-        <p class="weather__pressure">18&#176;</p>  
-      </div>
-    </div>
+  <div *ngIf="error != null">
+    <span>{{ error }}</span>
   </div>
-  
 </div>
