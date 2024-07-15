@@ -6,7 +6,7 @@ import { error, log } from 'console';
 import { WeatherModel } from '../models/weather-model';
 import { CommonModule, formatDate } from '@angular/common';
 import { catchError, map, throwError } from 'rxjs';
-import { ForecastWeatherComponent } from '../forecast-weather/forecast-weather.component';
+
 import {
   DateWiseWeather,
   ForecastWeatherModel,
@@ -64,12 +64,6 @@ export class HomeComponent {
       .subscribe((res) => {
         this.weather = res;
         this.getDate(res);
-
-        // this.icon =
-        //   'http://openweathermap.org/img/wn/' + res.weather[0].icon + '@4x.png';
-        // this.date = new Date(res.dt * 1000);
-        // console.log(this.date);
-        // console.log(res.dt);
       });
   }
 
