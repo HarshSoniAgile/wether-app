@@ -27,10 +27,10 @@
 .container {
   background: #171717;
   color: #fff;
-  padding: 2rem;
+  padding: 32px;
   width: 60%;
   height: calc(100vh - 130px);
-  margin: 4rem auto;
+  margin: 64px auto;
   border-radius: 10px;
 }
 
@@ -45,7 +45,7 @@ input {
   background: #1e1e1e;
   outline: none;
   color: #fff;
-  padding: 0.5rem 2.5rem;
+  padding: 8px 40px;
   border-radius: 5px;
 }
 
@@ -71,7 +71,7 @@ input::placeholder {
 }
 
 .weather__units {
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 
 .weather__units span {
@@ -79,7 +79,7 @@ input::placeholder {
 }
 
 .weather__units span:first-child {
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 .weather__body {
@@ -88,14 +88,14 @@ input::placeholder {
 }
 
 .weather__datetime {
-  margin-bottom: 2rem;
+  margin-bottom: 32px;
   font-size: 14px;
 }
 
 .weather__forecast {
   background: #1e1e1e;
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   border-radius: 30px;
 }
 
@@ -104,7 +104,7 @@ input::placeholder {
 }
 
 .weather__temperature {
-  font-size: 1.75rem;
+  font-size: 28px;
 }
 
 .weather__minmax {
@@ -114,27 +114,27 @@ input::placeholder {
 
 .weather__minmax p {
   font-size: 14px;
-  margin: 0.5rem;
+  margin: 8px;
 }
 
 .weather__info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
-  margin-top: 3rem;
+  grid-gap: 16px;
+  margin-top: 48px;
 }
 
 .weather__card {
   display: flex;
   align-items: center;
   background: #1e1e1e;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 10px;
 }
 
 .weather__card i {
-  font-size: 1.5rem;
-  margin-right: 1rem;
+  font-size: 24px;
+  margin-right: 16px;
 }
 
 .weather__card p {
@@ -151,7 +151,7 @@ input::placeholder {
   }
 
   .weather__units {
-    margin-top: 1rem;
+    margin-top: 16px;
   }
 }
 
