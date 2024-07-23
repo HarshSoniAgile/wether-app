@@ -1,7 +1,7 @@
 export interface ForecastWeatherModel {
-  cod: string;
-  message: number;
-  cnt: number;
+  cod?: string;
+  message?: number;
+  cnt?: number;
   list: List[];
   city: City;
 }
@@ -13,16 +13,16 @@ export interface DateWiseWeather {
 }
 
 export interface List {
-  dt: number;
-  main: Main;
-  weather: Weather[];
-  clouds: Clouds;
-  wind: Wind;
-  visibility: number;
-  pop: number;
+  dt?: number;
+  main?: Main;
+  weather?: Weather[];
+  clouds?: Clouds;
+  wind?: Wind;
+  visibility?: number;
+  pop?: number;
   rain?: Rain;
-  sys: Sys;
-  dt_txt: string;
+  sys?: Sys;
+  dt_txt?: string;
   isSelected?: boolean;
 }
 
@@ -64,14 +64,14 @@ export interface Sys {
 }
 
 export interface City {
-  id: number;
-  name: string;
-  coord: Coord;
-  country: string;
-  population: number;
-  timezone: number;
-  sunrise: number;
-  sunset: number;
+  id?: number;
+  name?: string;
+  coord?: Coord;
+  country?: string;
+  population?: number;
+  timezone?: number;
+  sunrise?: number;
+  sunset?: number;
 }
 
 export interface Coord {

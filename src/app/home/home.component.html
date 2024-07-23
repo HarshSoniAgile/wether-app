@@ -11,15 +11,12 @@
       />
       <i class="fa-solid fa-magnifying-glass"></i>
     </form>
-    <div class="weather__units">
-      <span class="weather_unit_celsius">&#176;C</span>
-      <span class="weather_unit_farenheit">&#176;F</span>
-    </div>
+
   </div>
 
   <div *ngIf="weather != null && error == null">
     <div class="weather__body">
-      <h1 class="weather__city">
+      <h1 class="weather__city" name = "city">
         {{ weather.city.name }}
       </h1>
 

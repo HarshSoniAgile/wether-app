@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Type } from '@angular/core';
 import { RequestI } from '../models/req-res-model';
-import { WeatherModel } from '../models/weather-model';
-import { Interface } from 'readline';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
